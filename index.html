@@ -15,7 +15,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: #f8f8f8;
-      background: linear-gradient(180deg, #1a1f1b, #2c3a32 40%, #4a6651);
+      background: linear-gradient(180deg, #1a1f1b, #2e2838 20%, #3e3b4a 50%, #4a6651);
       overflow-x: hidden;
     }
 
@@ -40,16 +40,18 @@
     }
 
     nav.glow {
-      box-shadow: 0 0 20px 4px rgba(176, 255, 204, 0.6),
-                  0 0 40px 10px rgba(140, 255, 210, 0.3);
-      background: rgba(38, 64, 45, 0.9);
+      box-shadow:
+        0 0 20px 4px rgba(176, 255, 204, 0.5),
+        0 0 30px 8px rgba(190, 130, 255, 0.4),
+        0 0 40px 10px rgba(255, 150, 220, 0.3);
+      background: rgba(46, 48, 57, 0.9);
     }
 
     nav h1 {
       font-family: 'Cinzel Decorative', cursive;
       font-size: 1.6rem;
       color: #c3f7d2;
-      text-shadow: 0 0 10px #9ef0c5;
+      text-shadow: 0 0 12px #b891ff, 0 0 20px #ffb7ef;
     }
 
     nav ul {
@@ -66,8 +68,8 @@
     }
 
     nav a:hover {
-      color: #b0ffcc;
-      text-shadow: 0 0 8px #aef7d4;
+      color: #ffcef5;
+      text-shadow: 0 0 10px #b590ff, 0 0 15px #ffa8f0;
     }
 
     /* --- Sections --- */
@@ -87,15 +89,15 @@
       font-family: 'Cinzel Decorative', cursive;
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #c8ffd8;
-      text-shadow: 0 0 10px #b8f8cb;
+      color: #e3c9ff;
+      text-shadow: 0 0 15px #b891ff, 0 0 25px #ffb7ef;
     }
 
     p {
       max-width: 700px;
       font-size: 1.1rem;
       line-height: 1.7;
-      color: #e3ffe9;
+      color: #f3e6ff;
     }
 
     /* --- Sparkles --- */
@@ -120,33 +122,36 @@
 
     /* --- Fireflies --- */
     .firefly {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: radial-gradient(circle, #c8ffb3 20%, transparent 60%);
+      position: fixed;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      box-shadow: 0 0 8px 3px #b0ffbb;
       opacity: 0.8;
-      animation: float 12s ease-in-out infinite, flicker 3s infinite alternate;
-      z-index: 2;
+      z-index: 3;
+      background: radial-gradient(circle, rgba(200,255,179,1) 30%, transparent 70%);
+      box-shadow:
+        0 0 12px 4px rgba(176,255,204,0.8),
+        0 0 16px 6px rgba(190,130,255,0.6),
+        0 0 18px 8px rgba(255,150,220,0.5);
+      animation: drift 25s infinite ease-in-out alternate, flicker 3s infinite alternate;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); }
-      25% { transform: translateY(-30px) translateX(50px); }
-      50% { transform: translateY(10px) translateX(-40px); }
-      75% { transform: translateY(-25px) translateX(30px); }
-      100% { transform: translateY(0) translateX(0); }
+    @keyframes drift {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(40vw, 10vh); }
+      50% { transform: translate(-20vw, -10vh); }
+      75% { transform: translate(30vw, -20vh); }
+      100% { transform: translate(-30vw, 20vh); }
     }
 
     @keyframes flicker {
-      from { opacity: 0.4; }
+      from { opacity: 0.3; }
       to { opacity: 1; }
     }
 
     /* --- Mist --- */
     .mist {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 200%;
@@ -165,30 +170,31 @@
       to { transform: translateX(-50%); }
     }
 
-    /* --- Section Colors --- */
+    /* --- Section Backgrounds --- */
     #home {
-      background: linear-gradient(180deg, #203224, #2f4b37);
+      background: linear-gradient(180deg, #2c2434, #3a394b);
     }
 
     #resources {
-      background: linear-gradient(180deg, #2f4b37, #3b5b47);
+      background: linear-gradient(180deg, #3a394b, #414f49);
     }
 
     #events {
-      background: linear-gradient(180deg, #3b5b47, #465d4c);
+      background: linear-gradient(180deg, #414f49, #465d4c);
     }
 
     #about {
-      background: linear-gradient(180deg, #465d4c, #25362c);
+      background: linear-gradient(180deg, #465d4c, #2e2838);
     }
 
     /* --- Footer --- */
     footer {
-      background: #1b241d;
-      color: #a8d5b5;
+      background: #1b1e20;
+      color: #d7b8ff;
       text-align: center;
       padding: 20px 0;
       font-size: 0.9rem;
+      box-shadow: 0 -4px 12px rgba(200,150,255,0.2);
     }
   </style>
 
@@ -198,7 +204,7 @@
 
 <body>
   <nav id="navbar">
-    <h1>Enchanted Grove</h1>
+    <h1>SoftestPlutonian</h1>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#resources">Resources</a></li>
@@ -207,20 +213,25 @@
     </ul>
   </nav>
 
-  <!-- Fireflies -->
-  <div class="firefly" style="top:20%; left:10%; animation-delay:0s;"></div>
-  <div class="firefly" style="top:40%; left:30%; animation-delay:2s;"></div>
-  <div class="firefly" style="top:60%; left:50%; animation-delay:4s;"></div>
-  <div class="firefly" style="top:70%; left:70%; animation-delay:1s;"></div>
-  <div class="firefly" style="top:30%; left:80%; animation-delay:3s;"></div>
-  <div class="firefly" style="top:80%; left:20%; animation-delay:5s;"></div>
-  <div class="firefly" style="top:50%; left:90%; animation-delay:6s;"></div>
-
   <!-- Floating Mist -->
   <div class="mist"></div>
 
+  <!-- Fireflies scattered throughout -->
+  <script>
+    const fireflyCount = 25; // number of fireflies
+    for (let i = 0; i < fireflyCount; i++) {
+      const firefly = document.createElement('div');
+      firefly.classList.add('firefly');
+      firefly.style.top = Math.random() * 100 + 'vh';
+      firefly.style.left = Math.random() * 100 + 'vw';
+      firefly.style.animationDelay = (Math.random() * 10) + 's';
+      firefly.style.animationDuration = (20 + Math.random() * 20) + 's';
+      document.body.appendChild(firefly);
+    }
+  </script>
+
   <section id="home" class="sparkles">
-    <h2>Welcome to the Enchanted Grove</h2>
+    <h2>Welcome to the SoftestPlutonian</h2>
     <p>Step through the mist and into the heart of the fairy forest — a sacred space for dreamers, healers, and seekers. Let your journey begin under moonlit leaves and shimmering starlight.</p>
   </section>
 
@@ -231,16 +242,17 @@
 
   <section id="events" class="sparkles">
     <h2>Events</h2>
+    <a href="https://www.eventbrite.com/o/ssica-om-120183338321">All Events!</a>
     <p>Join our upcoming moon circles, seasonal retreats, and starlit gatherings — where community and ceremony meet in harmony beneath the forest canopy.</p>
   </section>
 
   <section id="about" class="sparkles">
     <h2>About</h2>
-    <p>Founded by kindred souls devoted to magic and mindfulness, Enchanted Grove is a living portal to reconnect you with nature’s rhythm and your own inner light.</p>
+    <p>Founded by kindred souls devoted to magic and mindfulness, SoftestPlutonian is a living portal to reconnect you with nature’s rhythm and your own inner light.</p>
   </section>
 
   <footer>
-    © 2025 Enchanted Grove — Crafted with starlight and serenity 🌙
+    © 2025 SoftestPlutonian — Crafted with starlight and serenity 🌙
   </footer>
 
   <!-- Scroll Glow Script -->
