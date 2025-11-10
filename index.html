@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoftestPlutonian ✨</title>
+  <style>
+    /* --- Reset & Fonts --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #f8f8f8;
+      background: linear-gradient(180deg, #1a1f1b, #2c3a32 40%, #4a6651);
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* --- Navigation Bar --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(34, 49, 38, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+      transition: box-shadow 0.5s ease, background 0.5s ease;
+    }
+
+    nav.glow {
+      box-shadow: 0 0 20px 4px rgba(176, 255, 204, 0.6),
+                  0 0 40px 10px rgba(140, 255, 210, 0.3);
+      background: rgba(38, 64, 45, 0.9);
+    }
+
+    nav h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.6rem;
+      color: #c3f7d2;
+      text-shadow: 0 0 10px #9ef0c5;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e6ffe9;
+      font-weight: 500;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b0ffcc;
+      text-shadow: 0 0 8px #aef7d4;
+    }
+
+    /* --- Sections --- */
+    section {
+      min-height: 100vh;
+      padding: 120px 10% 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h2 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #c8ffd8;
+      text-shadow: 0 0 10px #b8f8cb;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #e3ffe9;
+    }
+
+    /* --- Sparkles --- */
+    .sparkles::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1px);
+      background-size: 4px 4px;
+      opacity: 0.2;
+      pointer-events: none;
+      animation: shimmer 10s linear infinite;
+    }
+
+    @keyframes shimmer {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    /* --- Fireflies --- */
+    .firefly {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #c8ffb3 20%, transparent 60%);
+      border-radius: 50%;
+      box-shadow: 0 0 8px 3px #b0ffbb;
+      opacity: 0.8;
+      animation: float 12s ease-in-out infinite, flicker 3s infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-30px) translateX(50px); }
+      50% { transform: translateY(10px) translateX(-40px); }
+      75% { transform: translateY(-25px) translateX(30px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+
+    @keyframes flicker {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+
+    /* --- Mist --- */
+    .mist {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08), transparent 60%),
+                  radial-gradient(circle at 70% 50%, rgba(255,255,255,0.06), transparent 60%);
+      opacity: 0.5;
+      filter: blur(40px);
+      animation: mistMove 80s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes mistMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* --- Section Colors --- */
+    #home {
+      background: linear-gradient(180deg, #203224, #2f4b37);
+    }
+
+    #resources {
+      background: linear-gradient(180deg, #2f4b37, #3b5b47);
+    }
+
+    #events {
+      background: linear-gradient(180deg, #3b5b47, #465d4c);
+    }
+
+    #about {
+      background: linear-gradient(180deg, #465d4c, #25362c);
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: #1b241d;
+      color: #a8d5b5;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+  </style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav id="navbar">
+    <h1>Enchanted Grove</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Fireflies -->
+  <div class="firefly" style="top:20%; left:10%; animation-delay:0s;"></div>
+  <div class="firefly" style="top:40%; left:30%; animation-delay:2s;"></div>
+  <div class="firefly" style="top:60%; left:50%; animation-delay:4s;"></div>
+  <div class="firefly" style="top:70%; left:70%; animation-delay:1s;"></div>
+  <div class="firefly" style="top:30%; left:80%; animation-delay:3s;"></div>
+  <div class="firefly" style="top:80%; left:20%; animation-delay:5s;"></div>
+  <div class="firefly" style="top:50%; left:90%; animation-delay:6s;"></div>
+
+  <!-- Floating Mist -->
+  <div class="mist"></div>
+
+  <section id="home" class="sparkles">
+    <h2>Welcome to the Enchanted Grove</h2>
+    <p>Step through the mist and into the heart of the fairy forest — a sacred space for dreamers, healers, and seekers. Let your journey begin under moonlit leaves and shimmering starlight.</p>
+  </section>
+
+  <section id="resources" class="sparkles">
+    <h2>Resources</h2>
+    <p>Discover mystical readings, herbal recipes, lunar rituals, and wisdom shared by the forest spirits. Your magical toolkit for soulful living awaits.</p>
+  </section>
+
+  <section id="events" class="sparkles">
+    <h2>Events</h2>
+    <p>Join our upcoming moon circles, seasonal retreats, and starlit gatherings — where community and ceremony meet in harmony beneath the forest canopy.</p>
+  </section>
+
+  <section id="about" class="sparkles">
+    <h2>About</h2>
+    <p>Founded by kindred souls devoted to magic and mindfulness, Enchanted Grove is a living portal to reconnect you with nature’s rhythm and your own inner light.</p>
+  </section>
+
+  <footer>
+    © 2025 Enchanted Grove — Crafted with starlight and serenity 🌙
+  </footer>
+
+  <!-- Scroll Glow Script -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('glow');
+      } else {
+        navbar.classList.remove('glow');
+      }
+    });
+  </script>
+</body>
+</html>
